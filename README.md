@@ -1,5 +1,7 @@
 # Unofficial Claude Code Companion
 
+**English** | [中文](README.zh-CN.md)
+
 > ⚠️ **Unofficial, community-built.** Not affiliated with or endorsed by Anthropic.
 > This extension reads Claude Code's **undocumented** local files
 > (`~/.claude/sessions/*.json`, `~/.claude/projects/*.jsonl`). If Claude Code
