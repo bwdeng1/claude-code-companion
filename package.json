@@ -1,0 +1,80 @@
+{
+  "name": "claude-code-companion",
+  "displayName": "Unofficial Claude Code Companion",
+  "description": "Per-tab context % gauge + done notifications for Claude Code. Unofficial, not affiliated with Anthropic.",
+  "version": "0.1.0",
+  "publisher": "bwdeng1",
+  "license": "MIT",
+  "icon": "icon.png",
+  "engines": { "vscode": "^1.88.0" },
+  "categories": ["Visualization", "Other"],
+  "keywords": [
+    "claude",
+    "claude code",
+    "context",
+    "tokens",
+    "status bar",
+    "notification"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bwdeng1/claude-code-companion.git"
+  },
+  "bugs": { "url": "https://github.com/bwdeng1/claude-code-companion/issues" },
+  "homepage": "https://github.com/bwdeng1/claude-code-companion#readme",
+  "activationEvents": ["onStartupFinished"],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Claude Code Companion",
+      "properties": {
+        "ccCompanion.contextLimit": {
+          "type": "number",
+          "default": 1000000,
+          "description": "认不出模型时的兜底上下文上限（token）。模块① 优先按会话模型 id 取上限，取不到才用这个。"
+        },
+        "ccCompanion.warnThreshold": {
+          "type": "number",
+          "default": 30,
+          "description": "状态栏变黄的占用百分比阈值（默认 30%）"
+        },
+        "ccCompanion.dangerThreshold": {
+          "type": "number",
+          "default": 60,
+          "description": "状态栏变红的占用百分比阈值（默认 60%）"
+        },
+        "ccCompanion.notify.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "会话跑完时弹完成通知"
+        },
+        "ccCompanion.notify.sound": {
+          "type": "boolean",
+          "default": false,
+          "description": "完成通知带声音（默认静音）"
+        },
+        "ccCompanion.notify.onlyWhenUnfocused": {
+          "type": "boolean",
+          "default": false,
+          "description": "仅当 VS Code 不在前台时才弹通知"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "node esbuild.mjs",
+    "watch": "node esbuild.mjs --watch",
+    "check": "tsc --noEmit",
+    "test": "vitest run",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.0",
+    "@types/vscode": "^1.88.0",
+    "@vscode/vsce": "^2.26.0",
+    "esbuild": "^0.21.0",
+    "typescript": "^5.4.0",
+    "vitest": "^1.6.0"
+  }
+}
