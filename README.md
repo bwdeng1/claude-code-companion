@@ -46,7 +46,21 @@ code --install-extension claude-code-companion-<版本>.vsix
 
 ## 🔧 配置
 
-VS Code 设置里搜 `Claude Code Companion`：
+参数在 **VS Code 自己的设置**里调（扩展没有独立的配置界面）。两种方式，改完都**即时生效、无需重载**：
+
+**① 图形界面（最简单）** — 按 `⌘,`（macOS）/ `Ctrl+,`（Win·Linux）打开设置 → 搜索框输入 `Claude Code Companion` → 6 个选项直接点选 / 填数字。
+
+**② 或编辑 `settings.json`** — `⇧⌘P` / `Ctrl+Shift+P` → 运行 `Open User Settings (JSON)` → 加你要改的项，例如：
+
+```jsonc
+{
+  "ccCompanion.warnThreshold": 40,    // 40% 变黄
+  "ccCompanion.dangerThreshold": 70,  // 70% 变红
+  "ccCompanion.notify.sound": true    // 通知带声音
+}
+```
+
+下面是全部可调项（属 User 全局设置，对所有项目生效；也可放进某项目的 Workspace 设置只对它生效）：
 
 | 设置项 | 默认 | 作用 |
 |---|---|---|

@@ -46,7 +46,21 @@ code --install-extension claude-code-companion-<version>.vsix
 
 ## 🔧 Configuration
 
-Search `Claude Code Companion` in VS Code settings:
+Settings live in **VS Code's own settings** (the extension has no separate config UI). Two ways, both apply **immediately, no reload needed**:
+
+**1. Settings UI (easiest)** — press `⌘,` (macOS) / `Ctrl+,` (Win·Linux), type `Claude Code Companion` in the search box, then toggle / type values for the 6 options.
+
+**2. Or edit `settings.json`** — `⇧⌘P` / `Ctrl+Shift+P` → run `Open User Settings (JSON)`, then add what you want to change, e.g.:
+
+```jsonc
+{
+  "ccCompanion.warnThreshold": 40,    // turn yellow at 40%
+  "ccCompanion.dangerThreshold": 70,  // turn red at 70%
+  "ccCompanion.notify.sound": true    // play a sound
+}
+```
+
+All options below are User (global) settings; you can also put them in a project's Workspace settings to scope them to that project.
 
 | Setting | Default | What it does |
 |---|---|---|
