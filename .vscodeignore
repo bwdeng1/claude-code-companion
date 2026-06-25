@@ -11,4 +11,7 @@ vitest.config.ts
 .gitignore
 .vscodeignore
 package-lock.json
+.github/**
+media/screenshot.png
+README.en.md
 **/.DS_Store
